@@ -13,6 +13,9 @@
 
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script>
+
+      var countries = <?php echo json_encode($countries); ?>;
+
       function initialize() {
         var earth = new WE.map('earth_div');
         earth.setView([46.8011, 8.2266], 2);
@@ -25,19 +28,14 @@
           tms: true
         }).addTo(earth);
 
-        var marker = WE.marker([51.5, -0.09]).addTo(earth);
-        marker.bindPopup("<b>Hello world!</b><br>I am a popup.<br /><span style='font-size:10px;color:#999'>Tip: Another popup is hidden in Cairo..</span><button id='clickMe'>Click me</button>", {maxWidth: 150, closeButton: true}).openPopup();
+        var marker = [];
 
-        var marker2 = WE.marker([30.058056, 31.228889]).addTo(earth);
-        marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!", {maxWidth: 120, closeButton: false});
-
-        var markerCustom = WE.marker([40, -90]).addTo(earth);
-
-        var markerHanoi = WE.marker([21.0277644, 105.834159]).addTo(earth);
-        markerHanoi.bindPopup("<b>Hello world!</b><br>Ha Noi<br /><span style='font-size:10px;color:#999'>Tip: Another popup is hidden in Cairo..</span><button id='clickMe'>Click me</button>",{maxWidth: 120, closeButton: true});
-
+        for (i = 0; i < countries.length; i++) { 
+          
+          marker[i] = WE.marker([countries[i]['latitude'], countries[i]['longitude']]).addTo(earth);
+          marker[i].bindPopup("<b>" + countries[i]['name'] + "</b><br><br /><span style='font-size:10px;color:#999'>Click below to know more about Christmas..</span><button id='"+ countries[i]['id'] + "'>Info</button>", {maxWidth: 150, closeButton: true});
+        }
       }
-
     </script>
     <style>
       html, body{padding: 0; margin: 0; background-color: black;}
@@ -111,58 +109,45 @@
       </div>
       <div id="right-part">
         <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <div id="card" class="weater">
-          <div class="city-selected">
-            <article>
-
-              <div class="info">
-                <div class="city"><span>City:</span>Ha Noi </div>
-                <div class="night">Night - 22:07 PM</div>
-              </div>
-
-            </article>
-            
-            <figure style="background-image: url(http://136.243.1.253/~creolitic/bootsnipp/home.jpg)"></figure>
-          </div>
-
-          <div class="days">
-            <div class="row row-no-gutter">
-              <div class="col-md-12">
-                <div class="day">
-                  <h1>Christmas in Ha Noi</h1>
+          <div class="row">
+            <div class="col-sm-4">
+              <div id="card" class="weater">
+                <div class="city-selected">
+                  <article>
+                    <div class="info">
+                      <div class="city"><span>City:</span>Ha Noi </div>
+                      <div class="time">Night - 22:07 PM</div>
+                    </div>
+                  </article>
+                  <figure style="background-image: url(http://136.243.1.253/~creolitic/bootsnipp/home.jpg)"></figure>
                 </div>
-                <div class="content">
-                  <p>In South Africa, people celebrate Christmas Day with the family often with a ‘braai’, similar to a BBQ, as it is summer season there as well. Many people visit Christmas mass on Christmas as well.</p>
-                  <img src="http://www.kids-world-travel-guide.com/images/500xNxSA_christmas_waterfrontown.jpg.pagespeed.ic.29v0YuY_Dm.jpg" alt="Christmas in Cape Town/South Africa" title="Christmas in Cape Town/South Africa" data-pin-media="http://www.kids-world-travel-guide.com/images/SA_christmas_waterfrontown.jpg">
-                  <p>Above you can see the modern Christmas tree in front of the V&A Waterfront Shopping Centre in Cape Town. At the Waterfront there are many Christmas concerts during the weeks leading up to Christmas Day.</p>
+
+                <div class="days" >
+                  <div class="row row-no-gutter">
+                    <div class="col-md-12">
+                      <div class="day">
+                        <h1>Christmas in Ha Noi</h1>
+                      </div>
+                      <div class="content">
+                        <p>In South Africa, people celebrate Christmas Day with the family often with a ‘braai’, similar to a BBQ, as it is summer season there as well. Many people visit Christmas mass on Christmas as well.</p>
+                        <img src="http://www.kids-world-travel-guide.com/images/500xNxSA_christmas_waterfrontown.jpg.pagespeed.ic.29v0YuY_Dm.jpg" alt="Christmas in Cape Town/South Africa" title="Christmas in Cape Town/South Africa" data-pin-media="http://www.kids-world-travel-guide.com/images/SA_christmas_waterfrontown.jpg">
+                        <p>Above you can see the modern Christmas tree in front of the V&A Waterfront Shopping Centre in Cape Town. At the Waterfront there are many Christmas concerts during the weeks leading up to Christmas Day.</p>
+                      </div>
+                    </div>
+
+                    
+                  </div>
                 </div>
               </div>
-
-              
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-      </div>
-    </div>
-  </div>
     
   </body>
   <style>
-  .row-no-gutter {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.row-no-gutter [class*="col-"] {
-  padding-right: 0;
-  padding-left: 0;
-}
-
 
 #card {
   background: #fff;
@@ -196,21 +181,6 @@ article {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-content: flex-start;
-  -ms-flex-line-pack: start;
-  align-content: flex-start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
 }
 
 .info .city,
@@ -229,17 +199,6 @@ article {
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
   align-self: auto;
-}
-
-.info .city:after {
-  content: '';
-  width: 15px;
-  height: 2px;
-  background: #fff;
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 10px;
 }
 
 .city span {
@@ -315,7 +274,7 @@ figure {
     background-size: cover;
     opacity: 0.1;
     z-index: 1;
-
+  
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;

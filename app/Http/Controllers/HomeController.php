@@ -3,8 +3,10 @@
 use App\Http\Controllers\Controller;
 use DB;
 use Response;
-use Request;
 use Log;
+use Request;
+
+
 use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller {
@@ -23,7 +25,8 @@ class HomeController extends Controller {
     public function show($id)
     {
         $query = DB::table('countries')->where('id', '=', $id)->get();
-
+	Log::info($query);
+	Log::info($id);
         $country = $query[0];
 
         return Response::json($country, 200);

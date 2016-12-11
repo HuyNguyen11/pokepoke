@@ -1,0 +1,184 @@
+/* Main */
+
+
+  #earth_div{
+
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    position: absolute !important;
+    background-image: -webkit-gradient(
+      linear,
+       left bottom,
+       left top,
+       color-stop(0, rgb(253,253,253)),
+       color-stop(0.15, rgb(253,253,253)),
+       color-stop(0.53, rgb(223,223,223)),
+       color-stop(0.56, rgb(255,255,255)),
+       color-stop(1, rgb(253,253,253))
+    );
+   background-image: -moz-linear-gradient(
+     center bottom,
+     rgb(253,253,253) 0%,
+     rgb(253,253,253) 15%,
+     rgb(223,223,223) 53%,
+     rgb(255,255,255) 56%,
+     rgb(253,253,253) 100%
+     );
+  }
+
+      
+  #information{
+    overflow:hidden;
+    background-color: blue;
+    top: 100px;
+    right: 100px;
+    height: auto;
+  }
+
+  #right-part {
+    background-color: transparent;
+    width : 32%;
+    right: 0px;
+    height: 100%;
+    position: absolute;
+  }
+
+  #right-part .content {
+    padding : 10px;
+  }
+
+  #right-part .content img{
+    width : 100%;
+  }
+
+  #left-part {
+    background-color: transparent;
+    width : 25%;
+    left: 0px;
+    height: 100%;
+    position: absolute; 
+  }
+
+  .countries-img {
+
+    margin-right : 10px;
+    height : 20px;
+  }
+
+
+/*  Information */
+#card {
+  background: #fff;
+  position: relative;
+  margin-top: 50px;
+  -webkit-box-shadow: 0px 1px 10px 0px rgba(207,207,207,1);
+  -moz-box-shadow: 0px 1px 10px 0px rgba(207,207,207,1);
+  box-shadow: 0px 1px 10px 0px rgba(207,207,207,1);
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;  
+
+}
+
+.city-selected {
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
+  background: #3D6AA2;
+}
+
+article {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 20px;
+
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.info .city,
+.night {
+  font-size: 24px;
+  font-weight: 200;
+  position: relative;
+
+
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+.city span {
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+
+  text-transform: lowercase;
+  text-align: left;
+}
+
+.city-selected:hover figure {
+  opacity: 0.4;
+}
+
+
+figure {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 1;
+  
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.content-bounder .row [class*="col-"]:nth-child(2) .day  {
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+    border-color: #eaeaea;
+}
+
+.content-bounder .row [class*="col-"] {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;  
+}
+
+.content-bounder .row [class*="col-"]:hover{
+  background: #eaeaea;
+}
+
+.title {
+  padding: 10px 0px;
+  text-align: center;
+
+}
+
+.title h1 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+

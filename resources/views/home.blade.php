@@ -13,7 +13,7 @@
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <link rel="stylesheet" type="text/css"  href="{{asset('css/general.css')}}">
     <script>
-    
+    var id_param = "";
     var countries = <?php echo json_encode($countries); ?>;
     
     function initialize() {
@@ -46,7 +46,7 @@
       $("body").on('click','.ctry-btn', function () {
     
         var id = this.id;
-        
+        id_param = id;
         $.ajax({
           url: '/countries/' + id ,
           type: "post",
@@ -76,9 +76,14 @@
             alert("Please enter your message!");
             return 0;
           }
+          console.log(id_param);
+          if(id_param == ""){
+            alert("Please choose country!");
+            return 0;
+          }
           $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
           $.ajax({
-              url: "/save_message",
+              url: "/save_message/" + id_param,
               type: "post",
               data: data,
               success: function(result){
@@ -89,7 +94,28 @@
               }  
           });
         });   
-    });    
+    });
+    function showComment(){
+
+            console.log("show comment start");
+          if(id_param != ""){
+            $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+            $.ajax({
+                url: "/get_message/" + id_param,
+                type: "post",
+                data: id_param,
+                success: function(result){
+                  // console.log(result["msg"]);
+                  $(".mess").html(result["msg"]);
+                },
+                error: function(errors){
+                  $(".mess").html("");
+                }  
+            });
+          }
+
+    }
+    setInterval(showComment,3000);
     </script>
 
   <title>PokePoke</title>
@@ -157,7 +183,7 @@
             <div></div>
             <div></div>
         </div>
-        <span class="mess">text mess</span>
+        <span class="mess"></span>
     </div>
 </div>
 <div class="text-box">

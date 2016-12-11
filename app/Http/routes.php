@@ -13,5 +13,6 @@
 
 Route::get('/', 'HomeController@index');
 Route::post('/countries/{id}', 'HomeController@show');
-Route::post('/countries/save_message', 'HomeController@saveMessage');
+Route::post('/save_message/{id}', 'HomeController@saveMessage');
+Route::post('/get_message/{id}', 'HomeController@getMessage');
 

@@ -11,6 +11,8 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<link rel="stylesheet" type="text/css"  href="{{asset('css/styles.css')}}">
+
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script>
 
@@ -106,6 +108,80 @@
   <div>
     <div id="earth_div">
       <div id="left-part">
+
+<div id="container">
+    <div id="tree">
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <span class="mess">text mess</span>
+    </div>
+</div>
+<div class="text-box">
+    <form>
+      <div class="row form-group">
+        <div class="col-xs-11">
+          <label for="comment">Comment:</label>
+          <textarea class="form-control" rows="5" height="100px" id="comment"></textarea>
+          <button type="submit" class="btn btn-default ">Submit1</button> 
+        </div>
+      </div>
+  </form>
+</div>
+
       </div>
       <div id="right-part">
         <div class="container">

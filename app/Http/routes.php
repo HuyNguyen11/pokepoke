@@ -14,3 +14,5 @@
 Route::get('/', 'HomeController@index');
 Route::post('/countries/{id}', 'HomeController@show');
 Route::get('/countries/{id}','HomeController@index');
+Route::post('/countries/save_message', 'HomeController@saveMessage');
+

@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css"  href="{{asset('css/styles.css')}}">
+
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <link rel="stylesheet" type="text/css"  href="{{asset('css/general.css')}}">
     <script>
@@ -61,16 +64,114 @@
         });
       });
     });
-    
+
+
+    $(document).ready(function () {
+        $('#save_message').click(function(){
+
+            console.log("save image start"); 
+            var data = new Object;
+          data['comment'] = $("#comment").val();
+          if($("#comment").val() == ""){
+            alert("Please enter your message!");
+            return 0;
+          }
+          $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+          $.ajax({
+              url: "/save_message",
+              type: "post",
+              data: data,
+              success: function(result){
+                alert("Send message successed!");
+              },
+              error: function(errors){
+                alert("Something errors!");
+              }  
+          });
+        });   
+    });    
     </script>
 
   <title>PokePoke</title>
   </head>
   <body onload="initialize()">
-    <div>
-      <div id="earth_div">
-        <div id="left-part">
+  <div>
+    <div id="earth_div">
+      <div id="left-part">
+
+<div id="container">
+    <div id="tree">
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="layer">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <span class="mess">text mess</span>
+    </div>
+</div>
+<div class="text-box">
+      <div class="row form-group">
+        <div class="col-xs-11">
+          <label for="comment">Comment:</label>
+          <textarea class="form-control" rows="5" height="100px" id="comment"></textarea>
+          <button id="save_message" class="btn btn-default ">Submit1</button> 
+        </div>
+      </div>
+</div>
+
+      </div>
+
         <div id="right-part">
           <div class="container">
             <div class="row">

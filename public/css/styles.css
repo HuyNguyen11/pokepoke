@@ -1,0 +1,195 @@
+/*
+
+   Copyright (c) 2010 Sebastien P.
+
+   http://twitter.com/_sebastienp
+
+   MIT licensed.
+
+   ---
+
+   A full CSS 3D rotating Christmas tree using
+   CSS3 animation, transforms, gradients etc.
+
+   The text size can be adjusted to make the tree
+   zoom in.
+
+   Only works in recent Webkit-based browsers.
+
+   Fallbacks :
+   - http://yfrog.us/20kzsz (video)
+   - http://yfrog.com/h2eodej (picture)
+
+*/
+
+
+/* Create a Webkit animation called "rotation" */
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotateY(0)
+    }
+    to {
+        -webkit-transform: rotateY(360deg)
+    }
+}
+
+/* Set some global styles for the container div */
+
+#container {
+    font-size: 200%;
+    padding: 20px;
+    padding-top: 10px;
+    position: relative;
+    -webkit-perspective: 800;
+}
+
+/*
+   Initiate the rotation animation on the tree div.
+   The use of "preserve-3d" is really important here.
+*/
+
+#tree {
+    -webkit-animation: rotation 20s infinite linear;
+    -webkit-transform-style: preserve-3d
+}
+
+/* Set some different angle transforms to the layer divs */
+
+.layer:nth-child(2) {
+    -webkit-transform: rotateY(45deg)
+}
+
+.layer:nth-child(3) {
+    -webkit-transform: rotateY(90deg)
+}
+
+.layer:nth-child(4) {
+    -webkit-transform: rotateY(135deg)
+}
+
+/*
+   This is the trick to make some full CSS triangles.
+   Combination of "left" and "negative" margin-left
+   is for horizontal centering.
+*/
+
+.layer > div {
+    border: 1em solid transparent;
+    content: "";
+    height: 0;
+    left: 50%;
+    margin-left: -1em;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+
+/* Set some different color changes to the triangles */
+
+.layer:nth-child(1) > div {
+    border-bottom-color: #090
+}
+
+.layer:nth-child(2) > div {
+    border-bottom-color: #080
+}
+
+.layer:nth-child(3) > div {
+    border-bottom-color: #070
+}
+
+.layer:nth-child(4) > div {
+    border-bottom-color: #060
+}
+
+/* Set some different size changes to the triangles */
+.layer > div:nth-child(1) {
+    font-size: 1.7em
+}
+
+.layer > div:nth-child(2) {
+    font-size: 3em
+}
+
+.layer > div:nth-child(3) {
+    font-size: 4em
+}
+
+.layer > div:nth-child(4) {
+    font-size: 5em
+}
+
+.layer > div:nth-child(5) {
+    font-size: 7em
+}
+
+/* Add some Christmas balls to the tree */
+
+.layer > div:not(:nth-child(5))::before,
+.layer > div:not(:nth-child(5))::after {
+    content: "";
+    display: block;
+    height: 0.25em;
+    position: absolute;
+    top: 0.875em;
+    width: 0.25em;
+    -webkit-border-radius: 0.25em
+}
+
+.layer > div:not(:nth-child(5))::before {
+    left: -1.125em;
+}
+
+.layer > div:not(:nth-child(5))::after {
+    right: -1.125em;
+}
+
+/* Set the Christmas balls colors nearly random style */
+
+.layer > div:nth-child(odd):not(:nth-child(5))::after,
+.layer > div:nth-child(even)::before {
+    background: -webkit-gradient(
+        linear,
+        right top,
+        left bottom,
+        from(#ff0),
+        to(#000)
+    ) #ff0;
+}
+
+.layer > div:nth-child(odd):not(:nth-child(5))::before,
+.layer > div:nth-child(even)::after {
+    background: -webkit-gradient(
+        linear,
+        right top,
+        left bottom,
+        from(#f00),
+        to(#000)
+    ) #f00;
+}
+.mess {
+    border: 1em solid transparent;
+    /* content: "text"; */
+    height: 20px;
+    left: 100%;
+    margin-left: -22em;
+    margin-top: -1em;
+    position: absolute;
+    /* top: 0; */
+    width: 20em;
+    font-size: 15px;
+    text-align: center;
+}
+.text-box{
+  position: absolute;
+  margin-top: 33em;
+  padding: 10px;
+  width: 100%;
+}
+.submit-button{
+  margin-top: 30px;
+}
+textarea {
+    height: 100% !important;
+}

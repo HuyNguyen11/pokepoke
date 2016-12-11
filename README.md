@@ -34,4 +34,4 @@ Create .env file with information to connect to DB.
 
 #3 Boostrap 
 
-getbootstrap.com/
+ http://getbootstrap.com

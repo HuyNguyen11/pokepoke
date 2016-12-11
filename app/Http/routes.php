@@ -12,4 +12,5 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::post('/countries/{id}', 'HomeController@show');
 
